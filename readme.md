@@ -35,7 +35,7 @@ There are many caveats to this process -- see the **Limitations** section below.
 2. To pretrain a default model on default data, `python train.py cfg/pretrain.yaml`. You can modify this config file to adjust hyperparameters and dataset.
 3. *finetuning not yet implemented*
 
-## limitations
+## Limitations
 This is a very simple demonstration model with some important constraints.
 ### data
 The included data is an academic standard provided by [BenevolentAI](https://github.com/BenevolentAI/guacamol), but this conceals the meta problem of data selection and preprocessing. The training dataset is several orders of magnitude smaller than what is needed for a real application. The choice of training data defines the model's distribution and might be considered a ceiling on what the model can provide. Moreover, the mapping of a molecule to its representation in SMILES is not 1:1. A user creating a new dataset would need to make several interesting choices: for example, how to handle chirality and aromaticity.
@@ -51,6 +51,6 @@ Finally, this project phrases drug development as a de novo process, but this is
 * [nanoGPT](https://github.com/karpathy/nanoGPT) -- Andrej Karpathy's excellent, tiny transformer. Most of my transfomer code is a rewrite of his.
 * [OpenAI's Spinning Up - PPO](https://spinningup.openai.com/en/latest/algorithms/ppo.html) -- OpenAI's discussion of PPO, with a reference implementation at [https://github.com/openai/spinningup/blob/master/spinup/algos/pytorch/ppo/ppo.py](https://github.com/openai/spinningup/blob/master/spinup/algos/pytorch/ppo/ppo.py).
 * [Proximal Policy Optimization Algorithms](https://arxiv.org/abs/1707.06347) (2017) -- the original PPO paper.
----
+
 ## Disclaimer, Attributions
 This is a completely new draft of some work I did as an intern at Eli Lilly & co. in 2023. It contains no proprietary information or trade secrets. I used Github Copilot to rewrite this project. The transformer architecture and training scripts owe a great debt to Andrej Karpathy's nanoGPT (see "References", above.)
