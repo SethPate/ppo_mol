@@ -1,0 +1,17 @@
+mode: pretrain
+name: guacamol
+data_f: guacamol_v1_all.smiles
+smiles_vocab_f: smiles_vocab.yaml
+batch_size: 4
+device: cpu
+lr: 0.0001
+save_every: 1
+eval_every: 1
+dropout: 0.0
+block_size: 128
+n_embed: 768
+n_heads: 12
+n_layers: 12
+n_vocab: 40 # number of tokens
+n_samples: 10
+sample_len: 10
