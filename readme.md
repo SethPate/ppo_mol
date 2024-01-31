@@ -2,7 +2,9 @@
 
 De novo molecule generation with a GPT-style transformer and Proximal Policy Optimization (PPO). I originally wrote this as a research intern at Eli Lilly & Co. All code is my own, and this repository contains nothing proprietary -- and arguably, nothing of commercial value.
 
-<img alt="An overview graphic showing the project phases of pretraining and finetuning." src="ppo_mol_ov.jpg" width=300px>
+<p align="center">
+<img alt="An overview graphic showing the project phases of pretraining and finetuning." src="ppo_mol_ov.jpg" width=450px>
+</p>
 
 **status 31 Jan, 2024:** I'm in the process of rewriting this repository. Pretraining seems to work well, although the hyperparameters are not tuned. Finetuning will come next.
 
