@@ -8,13 +8,11 @@ De novo molecule generation with a GPT-style transformer and Proximal Policy Opt
 
 **status 31 Jan, 2024:** I'm in the process of rewriting this repository. Pretraining seems to work well, although the hyperparameters are not tuned. Finetuning will come next.
 
----
 ## Use Case
 Drug development is a search through the (very large) molecular space for chemicals with useful properties. Very generally speaking, a drug should be 'active' against a certain biological target -- for example, GSK3B, which is associated with bipolar disorder. Chemists also want drugs with certain pharmacokinetic (PK) characteristics: absorption, distribution, metabolism, excretion, and a host of others. Finding the right molecule is hard.
 
 Computational chemistry tries to make life easier for chemists by narrowing the search space and automating some of the process. In this project, we take some methods that have been quite successful in language modeling, and apply them to chemistry -- namely, pretrained large language models finetuned with reinforcement learning. If it works, a chemist could **query the model to produce drug candidates with specific desirable properties.**
 
----
 ## Project Components
 ### pretraining
 By representing molecules as strings via [SMILES](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system), we can generate them with natural language processing (NLP) methods. In this case, we pretrain a GPT-style (decoder only) transformer on a corpus of 'good' molecules (for example, [ChEMBL](https://en.wikipedia.org/wiki/ChEMBL)). After pretraining, the transformer will generate molecules that resemble the training data.
@@ -28,18 +26,15 @@ For example, we might want to generate molecules with a certain lipophilicity. W
 
 There are many caveats to this process -- see the **Limitations** section below.
 
----
 ## Example
 
 *default write up and results still to come*
 
----
 ## Instructions
 1. Install dependencies with `pip install -r requirements.txt`.
 2. To pretrain a default model on default data, `python train.py cfg/pretrain.yaml`. You can modify this config file to adjust hyperparameters and dataset.
 3. *finetuning not yet implemented*
 
----
 ## limitations
 This is a very simple demonstration model with some important constraints.
 ### data
@@ -51,7 +46,6 @@ This system optimizes molecules for extremely simple targets that are readily ca
 ### problem formulation
 Finally, this project phrases drug development as a de novo process, but this is not always or often the case. Chemists might want to use an existing molecular 'scaffold' with known, helpful properties and add bits to it to target a certain site ('scaffold hopping'); on the other hand, they might have an R group (branch) that needs a new scaffold ('R group search'). Both of these cases would need some head-scratching to use the SMILES/GPT/PPO method described in this project.
 
----
 ## References
 * [guacamol](https://github.com/BenevolentAI/guacamol) (2018) -- an academic benchmark for molecular optimization. [paper](https://arxiv.org/abs/1811.09621)
 * [nanoGPT](https://github.com/karpathy/nanoGPT) -- Andrej Karpathy's excellent, tiny transformer. Most of my transfomer code is a rewrite of his.
